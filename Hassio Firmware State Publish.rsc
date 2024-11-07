@@ -73,10 +73,10 @@ if ([len [system/package/find name="iot"]]=0) do={ ; # If IOT packages is  not i
         #-------------------------------------------------------
         #Handle LTE interfaces
         #-------------------------------------------------------
-        :foreach iface in=[/interface/lte/ find] do={
-        local ifacename [/interface/lte get $iface name]
+        # :foreach iface in=[/interface/lte/ find] do={
+        # local ifacename [/interface/lte get $iface name]
 
-        #Get manufacturer and model for LTE interface
+        # #Get manufacturer and model for LTE interface
         # local lte [ [/interface/lte/monitor [/interface/lte get $iface name] once as-value] manufacturer]
         #     if ($lte->"manufacturer"="\"MikroTik\"") do={
         #         {
