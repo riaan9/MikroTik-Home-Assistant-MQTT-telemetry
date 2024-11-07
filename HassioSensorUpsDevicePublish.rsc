@@ -49,7 +49,7 @@ foreach i in=[/system/ups/ find] do={
 
     }
         :set ($device->"o"->"name") "MikroTik-Home-Assistant-MQTT-telemetry"
-        :set ($device->"o"->"url") "https://github.com/Xrlls/MikroTik-Home-Assistant-MQTT-telemetry"
+        :set ($device->"o"->"url") "https://github.com/riaan9/MikroTik-Home-Assistant-MQTT-telemetry"
 
     #Defining function to post data as Hassio auto discovery JSON to MQTT
     :local postdata do={

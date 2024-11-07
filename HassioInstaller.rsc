@@ -6,7 +6,7 @@ local fnames {"HassioLib_DeviceString";"HassioLib_LowercaseHex";"HassioLib_Searc
 foreach fname in=$fnames do={
     #--------------------------------------------------------------
     put "installing: $fname"
-    local url ("https://raw.githubusercontent.com/Xrlls/MikroTik-Home-Assistant-MQTT-telemetry/main/".$fname.".rsc")
+    local url ("https://raw.githubusercontent.com/riaan9/MikroTik-Home-Assistant-MQTT-telemetry/edge/".$fname.".rsc")
     local source ([tool/fetch $url output=user as-value ]->"data")
     local index [/system/script/find name=$fname]
     if ( [len $index] =0) do={
@@ -39,7 +39,7 @@ put "Functions"
 local deploy do={
     put "installing: $fname"
     :if ([:len $url]=0) do={
-        set $url ("https://raw.githubusercontent.com/Xrlls/MikroTik-Home-Assistant-MQTT-telemetry/main/".$fname.".rsc")
+        set $url ("https://raw.githubusercontent.com/riaan9/MikroTik-Home-Assistant-MQTT-telemetry/edge/".$fname.".rsc")
     }
     local source ([tool/fetch $url output=user as-value ]->"data")
     local index [/system/script/find name=$fname]
@@ -64,7 +64,7 @@ local deploy do={
 }
 
 local fname "HassioFirmwareEntityPublish"
-local url "https://raw.githubusercontent.com/Xrlls/MikroTik-Home-Assistant-MQTT-telemetry/main/Hassio%20Firmware%20Entity%20Publish.rsc"
+local url "https://raw.githubusercontent.com/riaan9/MikroTik-Home-Assistant-MQTT-telemetry/edge/Hassio%20Firmware%20Entity%20Publish.rsc"
 local interval "0s"
 local policy "read,test"
 
@@ -72,7 +72,7 @@ $deploy fname=$fname url=$url interval=$interval policy=$policy
  
    #--------------------------------------------------------------
 local fname "HassioFirmwareStatePublish"
-local url "https://raw.githubusercontent.com/Xrlls/MikroTik-Home-Assistant-MQTT-telemetry/main/Hassio%20Firmware%20State%20Publish.rsc"
+local url "https://raw.githubusercontent.com/riaan9/MikroTik-Home-Assistant-MQTT-telemetry/edge/Hassio%20Firmware%20State%20Publish.rsc"
 local interval "6h"
 local policy "read,write,policy,test"
 

@@ -38,7 +38,7 @@
         :set ($device->"dev"->"name") $1
         :set ($device->"dev"->"mf") "MikroTik"
         :set ($device->"o"->"name") "MikroTik-Home-Assistant-MQTT-telemetry"
-        :set ($device->"o"->"url") "https://github.com/Xrlls/MikroTik-Home-Assistant-MQTT-telemetry"
+        :set ($device->"o"->"url") "https://github.com/riaan9/MikroTik-Home-Assistant-MQTT-telemetry"
 
         #------------------------------------
         #Create sensors
