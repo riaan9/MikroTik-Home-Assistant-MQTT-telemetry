@@ -77,24 +77,24 @@ if ([len [system/package/find name="iot"]]=0) do={ ; # If IOT packages is  not i
         local ifacename [/interface/lte get $iface name]
 
         #Get manufacturer and model for LTE interface
-        local lte [ [/interface/lte/monitor [/interface/lte get $iface name] once as-value] manufacturer]
-            if ($lte->"manufacturer"="\"MikroTik\"") do={
-                {
-                local data
-                #build config for LTE
-                local modemname [:pick ($lte->"model")\
-                    ([:find ($lte->"model") "\"" -1] +1)\
-                    [:find ($lte->"model") "\"" [:find ($lte->"model") "\"" -1]]]
+        # local lte [ [/interface/lte/monitor [/interface/lte get $iface name] once as-value] manufacturer]
+        #     if ($lte->"manufacturer"="\"MikroTik\"") do={
+        #         {
+        #         local data
+        #         #build config for LTE
+        #         local modemname [:pick ($lte->"model")\
+        #             ([:find ($lte->"model") "\"" -1] +1)\
+        #             [:find ($lte->"model") "\"" [:find ($lte->"model") "\"" -1]]]
 
-                #Get firmware version for LTE interface
-                local Firmware [/interface/lte firmware-upgrade [/interface/lte get $iface name] as-value ]
-                set ($data->"installed_version") ($Firmware->"installed")
-                set ($data->"latest_version") ($Firmware->"latest")
+        #         #Get firmware version for LTE interface
+        #         local Firmware [/interface/lte firmware-upgrade [/interface/lte get $iface name] as-value ]
+        #         set ($data->"installed_version") ($Firmware->"installed")
+        #         set ($data->"latest_version") ($Firmware->"latest")
 
-                $poststate name=$modemname data=$data ID=$ID discoverypath=$discoverypath domainpath=$domainpath
-                }
-            }
-        }
+        #         $poststate name=$modemname data=$data ID=$ID discoverypath=$discoverypath domainpath=$domainpath
+        #         }
+        #     }
+        # }
 
         #-------------------------------------------------------
         #Handle NB/CAT-M interfaces

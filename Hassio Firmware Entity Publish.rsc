@@ -51,17 +51,17 @@ if ([len [system/package/find name="iot"]]=0) do={ ; # If IOT packages is  not i
         local ifacename [/interface/lte get $iface name]
 
         #Get manufacturer and model for LTE interface
-        local lte [ [/interface/lte/monitor [/interface/lte get $iface name] once as-value] manufacturer]
-            if ($lte->"manufacturer"="\"MikroTik\"") do={
-                {
-                #build config for LTE
-                local modemname [:pick ($lte->"model")\
-                    ([:find ($lte->"model") "\"" -1] +1)\
-                    [:find ($lte->"model") "\"" [:find ($lte->"model") "\"" -1]]]
-                $buildconfig name=$modemname discoverypath=$discoverypath domainpath=$domainpath dev=$dev
-                }
-            }
-        }
+        # local lte [ [/interface/lte/monitor [/interface/lte get $iface name] once as-value] manufacturer]
+        #     if ($lte->"manufacturer"="\"MikroTik\"") do={
+        #         {
+        #         #build config for LTE
+        #         local modemname [:pick ($lte->"model")\
+        #             ([:find ($lte->"model") "\"" -1] +1)\
+        #             [:find ($lte->"model") "\"" [:find ($lte->"model") "\"" -1]]]
+        #         $buildconfig name=$modemname discoverypath=$discoverypath domainpath=$domainpath dev=$dev
+        #         }
+        #     }
+        # }
 
         #-------------------------------------------------------
         #Handle NB/CAT-M interfaces
